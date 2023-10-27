@@ -186,13 +186,7 @@ contract Marketplace is ERC721Holder{
     }
 
     // user can remove the nft that is listed with timed auction , but only if there is no bid placed
-    function removeListingAuction(uint256 _tokenid) public {
-        require(msg.sender == auctionListings[_tokenid].seller,"you are not the seller");
-        require(!bidinformation[_tokenid].isBiPplaced,"bid is placed , can not remove from listing");
-        IERC721(nftContract).safeTransferFrom(address(this), msg.sender, _tokenid);
-        delete auctionListings[_tokenid];
-        emit unlistAuctions(_tokenid, msg.sender, block.timestamp);
-    }
+
 
     // vrf v2 request recieve funding from subscription accounts. the subscriotion manager lets you create an account and pre pay for the vrf v2 , so yoo dont need to pay for the everytime you  make the rewuest.abi
 
