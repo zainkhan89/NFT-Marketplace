@@ -68,7 +68,7 @@ contract Marketplace is ERC721Holder{
 
     function calculateServiceFee(uint256 _nftprice, uint256 _pbp) private pure returns(uint256){
         uint256 servicefees = _nftprice.mul(_pbp).div(10000);
-        
+        return servicefees;
     }
 
     // this function will list the nft on fixed price    
